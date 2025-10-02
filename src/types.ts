@@ -32,4 +32,5 @@ export interface TradeListResp {
   page: number;
   totalCount: number;
   items: TradeItem[];
+  sggName?: string;
 }
