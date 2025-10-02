@@ -13,7 +13,7 @@ export default function SearchForm({
 }) {
   const [sgg, setSgg] = useState(defaultSgg ?? '11110');
   const [sggName, setSggName] = useState('종로구');
-  const [ym, setYm] = useState('202509'); // 입력은 유지, 연도만 사용됨
+  const [ym, setYm] = useState('2025'); // 입력은 유지, 연도만 사용됨
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,11 +38,11 @@ export default function SearchForm({
         </div>
 
         <label>
-          년월(YYYYMM) <small>(연도만 사용)</small>
+          년(YYYY)
           <input
             value={ym}
             onChange={(e) => setYm(e.target.value)}
-            placeholder="202509"
+            placeholder="2025"
           />
         </label>
 
