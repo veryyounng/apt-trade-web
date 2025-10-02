@@ -9,7 +9,7 @@ export default function App() {
   const defaultSgg = import.meta.env.VITE_DEFAULT_SGG || '41117';
   const [query, setQuery] = useState<TradeQuery>({
     sgg: defaultSgg,
-    ym: '202509',
+    ym: '2025',
     page: 1,
     size: 10,
   });
