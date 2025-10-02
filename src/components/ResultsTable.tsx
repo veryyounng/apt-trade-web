@@ -16,17 +16,26 @@ export default function ResultsTable({ items }: { items: TradeItem[] }) {
         </tr>
       </thead>
       <tbody>
-        {items.map((it) => (
-          <tr key={`${it.aptSeq}-${it.dealYmd}`}>
-            <td>{fmtDate(it.dealYmd)}</td>
-            <td>{it.aptNm}</td>
-            <td>{fmtAmt(it.dealAmountManwon)}</td>
-            <td>{fmtArea(it.excluUseAr)}</td>
-            <td>{it.floor}</td>
-            <td>{it.dealingGbn}</td>
-            <td>{[it.roadNm, it.jibun].filter(Boolean).join(' ')}</td>
-          </tr>
-        ))}
+        {items.map((it) => {
+          const rowKey = [
+            it.aptSeq, // 단지/날짜
+            it.floor, // 층
+            it.excluUseAr, // 면적
+            it.dealAmountManwon, // 금액
+          ].join('|');
+
+          return (
+            <tr key={rowKey}>
+              <td>{fmtDate(it.dealYmd)}</td>
+              <td>{it.aptNm}</td>
+              <td>{fmtAmt(it.dealAmountManwon)}</td>
+              <td>{fmtArea(it.excluUseAr)}</td>
+              <td>{it.floor}</td>
+              <td>{it.dealingGbn}</td>
+              <td>{[it.roadNm, it.jibun].filter(Boolean).join(' ')}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

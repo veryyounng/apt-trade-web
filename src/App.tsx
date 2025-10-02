@@ -6,7 +6,7 @@ import { fetchTrades } from './api/trades';
 import type { TradeListResp, TradeQuery } from './types';
 
 export default function App() {
-  const defaultSgg = import.meta.env.VITE_DEFAULT_SGG || '41117';
+  const defaultSgg = import.meta.env.VITE_DEFAULT_SGG || '11110';
   const [query, setQuery] = useState<TradeQuery>({
     sgg: defaultSgg,
     ym: '2025',
